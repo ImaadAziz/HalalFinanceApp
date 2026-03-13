@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Halal Finance Manager Capture</title>
+    <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f4eee3;
+        --surface: #fffdf8;
+        --line: rgba(49, 90, 74, 0.14);
+        --text: #18362b;
+        --muted: #63796d;
+        --green: #315a4a;
+        --gold: #c6a25d;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(198, 162, 93, 0.16), transparent 25%),
+          radial-gradient(circle at top right, rgba(95, 141, 116, 0.18), transparent 28%),
+          linear-gradient(180deg, #f8f3ea 0%, var(--bg) 100%);
+      }
+
+      .frame {
+        width: min(1480px, calc(100vw - 48px));
+        margin: 0 auto;
+        padding: 40px 0 56px;
+      }
+
+      .header {
+        margin-bottom: 24px;
+        padding: 24px 28px;
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        background: rgba(255, 253, 248, 0.88);
+        box-shadow: 0 22px 64px rgba(24, 54, 43, 0.08);
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--green);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 42px;
+        line-height: 1;
+      }
+
+      p {
+        margin: 12px 0 0;
+        max-width: 72ch;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+
+      .image-shell {
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 32px;
+        background: var(--surface);
+        box-shadow: 0 24px 70px rgba(24, 54, 43, 0.1);
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 22px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="frame">
+      <section class="header">
+        <p class="eyebrow">Halal Finance Manager</p>
+        <h1>Mobile MVP Wireframes</h1>
+        <p>
+          Onboarding, dashboard, budget tracking, transactions, halal stock
+          screener, savings goals, insights, and profile settings designed with
+          a calm fintech visual language for Muslim professionals.
+        </p>
+      </section>
+
+      <section class="image-shell">
+        <img
+          src="./wireframes.png"
+          alt="Halal Finance Manager mobile wireframes"
+        />
+      </section>
+    </main>
+
+    <script>
+      (() => {
+        const installFetchProbe = () => {
+          if (window.__captureProbeInstalled) return;
+
+          const originalFetch = window.fetch.bind(window);
+          window.__captureProbeInstalled = true;
+
+          window.fetch = async (...args) => {
+            const request = args[0];
+            const url =
+              typeof request === "string"
+                ? request
+                : request && typeof request.url === "string"
+                  ? request.url
+                  : "";
+
+            if (url.includes("mcp.figma.com/mcp/capture/")) {
+              document.documentElement.dataset.captureRequest = url;
+            }
+
+            try {
+              const response = await originalFetch(...args);
+              if (url.includes("mcp.figma.com/mcp/capture/")) {
+                document.documentElement.dataset.captureHttpStatus = String(
+                  response.status
+                );
+                try {
+                  const payload = await response.clone().text();
+                  document.documentElement.dataset.captureResponse = payload.slice(
+                    0,
+                    500
+                  );
+                } catch (error) {
+                  document.documentElement.dataset.captureResponseError =
+                    error instanceof Error ? error.message : String(error);
+                }
+              }
+              return response;
+            } catch (error) {
+              if (url.includes("mcp.figma.com/mcp/capture/")) {
+                document.documentElement.dataset.captureFetchError =
+                  error instanceof Error ? error.message : String(error);
+              }
+              throw error;
+            }
+          };
+        };
+
+        const getCaptureConfig = () => {
+          const hash = new URLSearchParams(window.location.hash.replace(/^#/, ""));
+          const query = new URLSearchParams(window.location.search);
+          const captureId = hash.get("figmacapture") || query.get("captureId");
+          const endpoint = hash.get("figmaendpoint") || query.get("endpoint");
+
+          if (!captureId || !endpoint) return null;
+
+          return {
+            captureId,
+            endpoint,
+            selector: hash.get("figmaselector") || query.get("selector") || "body",
+            delayMs: Number(
+              hash.get("figmadelay") || query.get("delayMs") || 1000
+            ),
+            verbose: true,
+          };
+        };
+
+        const startCapture = async () => {
+          const config = getCaptureConfig();
+          if (!config || window.__captureStarted) return;
+
+          const captureFn = window.figma && window.figma.captureForDesign;
+          if (typeof captureFn !== "function") {
+            window.setTimeout(startCapture, 250);
+            return;
+          }
+
+          window.__captureStarted = true;
+          installFetchProbe();
+          document.documentElement.dataset.captureStatus = "started";
+
+          try {
+            await captureFn(config);
+            document.documentElement.dataset.captureStatus = "success";
+          } catch (error) {
+            console.error("Capture bootstrap failed", error);
+            window.__captureStarted = false;
+            document.documentElement.dataset.captureStatus = "error";
+            document.documentElement.dataset.captureError =
+              error instanceof Error ? error.message : String(error);
+          }
+        };
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", startCapture, {
+            once: true,
+          });
+        } else {
+          startCapture();
+        }
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Halal Finance Manager Screen Capture</title>
+    <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f4eee3;
+        --surface: rgba(255, 252, 246, 0.86);
+        --line: rgba(95, 141, 116, 0.18);
+        --text: #17372c;
+        --muted: #63796d;
+        --green: #325e4d;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(198, 162, 93, 0.15), transparent 24%),
+          radial-gradient(circle at top right, rgba(95, 141, 116, 0.18), transparent 28%),
+          linear-gradient(180deg, #f8f3ea 0%, var(--bg) 100%);
+      }
+
+      .shell {
+        width: min(960px, calc(100vw - 48px));
+        margin: 0 auto;
+        padding: 40px 0 56px;
+      }
+
+      .header {
+        margin-bottom: 24px;
+        padding: 22px 24px;
+        border-radius: 28px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        box-shadow: 0 24px 70px rgba(24, 54, 43, 0.1);
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--green);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 42px;
+        line-height: 1;
+      }
+
+      p {
+        margin: 10px 0 0;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+
+      .frame {
+        padding: 18px;
+        border-radius: 32px;
+        border: 1px solid var(--line);
+        background: rgba(255, 253, 248, 0.95);
+        box-shadow: 0 24px 70px rgba(24, 54, 43, 0.12);
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="header">
+        <p class="eyebrow">Halal Finance Manager</p>
+        <h1 id="screen-title">Screen Capture</h1>
+        <p id="screen-description">Preparing screen image for Figma.</p>
+      </section>
+
+      <section class="frame">
+        <img id="screen-image" alt="Halal Finance Manager screen" />
+      </section>
+    </main>
+
+    <script>
+      (() => {
+        const screenMeta = {
+          onboarding: {
+            title: "Onboarding",
+            description: "Values-aligned budgeting, investing, and zakat first-touch experience.",
+          },
+          dashboard: {
+            title: "Dashboard",
+            description: "Spending overview, progress, and quick actions.",
+          },
+          budget: {
+            title: "Budget Tracker",
+            description: "Category pacing and monthly budget monitoring.",
+          },
+          transactions: {
+            title: "Transactions",
+            description: "Recent activity with compliance-aware review states.",
+          },
+          invest: {
+            title: "Halal Stock Screener",
+            description: "Compliance results and purification guidance for investing.",
+          },
+          goals: {
+            title: "Savings Goals",
+            description: "Purpose-led saving for emergency funds and milestone plans.",
+          },
+          insights: {
+            title: "Insights",
+            description: "Weekly patterns, alerts, and action-oriented financial coaching.",
+          },
+          profile: {
+            title: "Profile & Settings",
+            description: "Preferences, compliance method, reminders, and linked accounts.",
+          },
+        };
+
+        const getParams = () => {
+          const hash = new URLSearchParams(window.location.hash.replace(/^#/, ""));
+          const query = new URLSearchParams(window.location.search);
+
+          return {
+            screen: query.get("screen") || "dashboard",
+            captureId: hash.get("figmacapture") || query.get("captureId"),
+            endpoint: hash.get("figmaendpoint") || query.get("endpoint"),
+            selector: hash.get("figmaselector") || query.get("selector") || "body",
+            delayMs: Number(hash.get("figmadelay") || query.get("delayMs") || 1000),
+          };
+        };
+
+        const render = () => {
+          const params = getParams();
+          const meta = screenMeta[params.screen] || screenMeta.dashboard;
+
+          document.title = `Halal Finance Manager - ${meta.title}`;
+          document.getElementById("screen-title").textContent = meta.title;
+          document.getElementById("screen-description").textContent = meta.description;
+          document.getElementById("screen-image").src = `./renders/${params.screen}.png`;
+
+          return params;
+        };
+
+        const startCapture = async () => {
+          const params = render();
+
+          if (!params.captureId || !params.endpoint || window.__imageCaptureStarted) {
+            return;
+          }
+
+          const captureFn = window.figma && window.figma.captureForDesign;
+          if (typeof captureFn !== "function") {
+            window.setTimeout(startCapture, 250);
+            return;
+          }
+
+          window.__imageCaptureStarted = true;
+          document.documentElement.dataset.captureStatus = "started";
+
+          try {
+            await captureFn({
+              captureId: params.captureId,
+              endpoint: params.endpoint,
+              selector: params.selector,
+              delayMs: params.delayMs,
+              verbose: true,
+            });
+            document.documentElement.dataset.captureStatus = "success";
+          } catch (error) {
+            document.documentElement.dataset.captureStatus = "error";
+            document.documentElement.dataset.captureError =
+              error instanceof Error ? error.message : String(error);
+            window.__imageCaptureStarted = false;
+          }
+        };
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", startCapture, { once: true });
+        } else {
+          startCapture();
+        }
+      })();
+    </script>
+  </body>
+</html>

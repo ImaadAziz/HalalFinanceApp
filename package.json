@@ -1,0 +1,12 @@
+{
+  "name": "halal-finance-v2",
+  "private": true,
+  "scripts": {
+    "mobile:start": "npm run start --prefix apps/mobile",
+    "mobile:android": "npm run android --prefix apps/mobile",
+    "mobile:ios": "npm run ios --prefix apps/mobile",
+    "mobile:web": "npm run web --prefix apps/mobile",
+    "mobile:lint": "npm run lint --prefix apps/mobile",
+    "mobile:typecheck": "npm run typecheck --prefix apps/mobile"
+  }
+}

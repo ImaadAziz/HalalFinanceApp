@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Halal Finance Manager Wireframes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Halal Finance Manager</p>
+          <h1>Mobile-first MVP wireframes for halal budgeting and investing.</h1>
+          <p class="intro">
+            Eight core screens designed for Muslim professionals who want a
+            calm, trustworthy way to budget, screen investments, calculate
+            zakat, and grow savings with confidence.
+          </p>
+        </div>
+        <div class="hero-panel">
+          <div class="tone-card">
+            <span class="tone-label">Visual direction</span>
+            <ul>
+              <li>Modern fintech minimalism</li>
+              <li>Soft greens with cream surfaces</li>
+              <li>Gold accents for trust and progress</li>
+              <li>Rounded cards and gentle depth</li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <main class="wireframe-grid">
+        <section class="phone onboarding-screen" data-screen="onboarding">
+          <div class="status-bar">
+            <span>9:41</span>
+            <span>5G</span>
+          </div>
+          <div class="screen-body">
+            <div class="ornament"></div>
+            <p class="eyebrow">Onboarding</p>
+            <h2>Manage money in a way that reflects your values.</h2>
+            <p class="body-copy">
+              Track spending, review halal stock compliance, and plan zakat
+              without feeling overwhelmed.
+            </p>
+            <div class="metric-pills">
+              <span>Budgeting</span>
+              <span>Halal investing</span>
+              <span>Zakat</span>
+            </div>
+            <div class="trust-card">
+              <div>
+                <p class="card-label">This week</p>
+                <strong>Financial clarity score</strong>
+              </div>
+              <span class="score-badge">87</span>
+            </div>
+            <div class="stacked-actions">
+              <button class="primary-btn">Create my plan</button>
+              <button class="secondary-btn">I already have an account</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="phone" data-screen="dashboard">
+          <div class="status-bar">
+            <span>9:41</span>
+            <span>5G</span>
+          </div>
+          <div class="app-header">
+            <div>
+              <p class="card-label">Dashboard</p>
+              <h2>Assalamu alaikum, Imaan</h2>
+            </div>
+            <div class="avatar-chip">IM</div>
+          </div>
+          <div class="screen-body tight">
+            <div class="summary-card highlight">
+              <div>
+                <p class="card-label">Spending overview</p>
+                <strong>$3,240</strong>
+              </div>
+              <span class="delta-pill">18% under budget</span>
+            </div>
+            <div class="mini-chart">
+              <div class="bar h-72"></div>
+              <div class="bar h-48"></div>
+              <div class="bar h-86 accent"></div>
+              <div class="bar h-60"></div>
+              <div class="bar h-34"></div>
+              <div class="bar h-56"></div>
+            </div>
+            <div class="split-card-row">
+              <article class="small-card">
+                <p class="card-label">Zakat due</p>
+                <strong>$612</strong>
+                <span>Estimate updated today</span>
+              </article>
+              <article class="small-card">
+                <p class="card-label">Savings pace</p>
+                <strong>74%</strong>
+                <span>For Umrah fund</span>
+              </article>
+            </div>
+            <article class="list-card">
+              <div class="list-card-head">
+                <strong>Quick actions</strong>
+                <span>View all</span>
+              </div>
+              <div class="action-chip-row">
+                <span>Check stock</span>
+                <span>Log expense</span>
+                <span>Review insight</span>
+              </div>
+            </article>
+          </div>
+          <nav class="tab-bar">
+            <span class="active">Home</span>
+            <span>Budget</span>
+            <span>Invest</span>
+            <span>Goals</span>
+            <span>Profile</span>
+          </nav>
+        </section>
+
+        <section class="phone" data-screen="budget">
+          <div class="status-bar">
+            <span>9:41</span>
+            <span>5G</span>
+          </div>
+          <div class="app-header">
+            <div>
+              <p class="card-label">Budget tracker</p>
+              <h2>March budget</h2>
+            </div>
+            <button class="ghost-chip">Edit</button>
+          </div>
+          <div class="screen-body tight">
+            <div class="progress-card">
+              <div class="progress-copy">
+                <p class="card-label">Used this month</p>
+                <strong>$2,540 / $4,100</strong>
+              </div>
+              <div class="ring"></div>
+            </div>
+            <article class="budget-list">
+              <div class="budget-row">
+                <div>
+                  <strong>Essentials</strong>
+                  <span>$1,450 spent</span>
+                </div>
+                <div class="line-progress"><span style="width: 78%"></span></div>
+              </div>
+              <div class="budget-row">
+                <div>
+                  <strong>Sadaqah & giving</strong>
+                  <span>$230 spent</span>
+                </div>
+                <div class="line-progress warm"><span style="width: 48%"></span></div>
+              </div>
+              <div class="budget-row">
+                <div>
+                  <strong>Travel</strong>
+                  <span>$520 spent</span>
+                </div>
+                <div class="line-progress"><span style="width: 62%"></span></div>
+              </div>
+              <div class="budget-row">
+                <div>
+                  <strong>Dining</strong>
+                  <span>$340 spent</span>
+                </div>
+                <div class="line-progress danger"><span style="width: 92%"></span></div>
+              </div>
+            </article>
+          </div>
+          <nav class="tab-bar">
+            <span>Home</span>
+            <span class="active">Budget</span>
+            <span>Invest</span>
+            <span>Goals</span>
+            <span>Profile</span>
+          </nav>
+        </section>
+
+        <section class="phone" data-screen="transactions">
+          <div class="status-bar">
+            <span>9:41</span>
+            <span>5G</span>
+          </div>
+          <div class="app-header">
+            <div>
+              <p class="card-label">Transactions</p>
+              <h2>Recent activity</h2>
+            </div>
+            <button class="ghost-chip">Filter</button>
+          </div>
+          <div class="screen-body tight">
+            <div class="chip-scroll">
+              <span class="active-chip">All</span>
+              <span>Needs review</span>
+              <span>Recurring</span>
+              <span>Zakatable</span>
+            </div>
+            <div class="transaction-list">
+              <article class="transaction-row">
+                <div class="icon-circle">G</div>
+                <div>
+                  <strong>Groceries</strong>
+                  <span>Fresh Market</span>
+                </div>
+                <div class="amount-block">
+                  <strong>-$84</strong>
+                  <span>Today</span>
+                </div>
+              </article>
+              <article class="transaction-row">
+                <div class="icon-circle accent">S</div>
+                <div>
+                  <strong>Sadaqah</strong>
+                  <span>LaunchGood</span>
+                </div>
+                <div class="amount-block">
+                  <strong>-$50</strong>
+                  <span>Yesterday</span>
+                </div>
+              </article>
+              <article class="transaction-row flagged">
+                <div class="icon-circle warm">?</div>
+                <div>
+                  <strong>Stock platform</strong>
+                  <span>Needs compliance review</span>
+                </div>
+                <div class="amount-block">
+                  <strong>-$200</strong>
+                  <span>Yesterday</span>
+                </div>
+              </article>
+              <article class="transaction-row">
+                <div class="icon-circle">U</div>
+                <div>
+                  <strong>Utilities</strong>
+                  <span>Auto pay</span>
+                </div>
+                <div class="amount-block">
+                  <strong>-$126</strong>
+                  <span>Mar 10</span>
+                </div>
+              </article>
+            </div>
+          </div>
+          <nav class="tab-bar">
+            <span>Home</span>
+            <span class="active">Budget</span>
+            <span>Invest</span>
+            <span>Goals</span>
+            <span>Profile</span>
+          </nav>
+        </section>
+
+        <section class="phone" data-screen="invest">
+          <div class="status-bar">
+            <span>9:41</span>
+            <span>5G</span>
+          </div>
+          <div class="app-header">
+            <div>
+              <p class="card-label">Halal stock screener</p>
+              <h2>Investment check</h2>
+            </div>
+            <button class="ghost-chip">Scan</button>
+          </div>
+          <div class="screen-body tight">
+            <div class="search-panel">
+              <strong>Search ticker or company</strong>
+              <div class="search-box">AAPL, MSFT, NVDA...</div>
+            </div>
+            <div class="compliance-card approved">
+              <div>
+                <p class="card-label">Compliance result</p>
+                <strong>Screened as mostly compliant</strong>
+              </div>
+              <span class="status-badge">Pass</span>
+            </div>
+            <article class="score-stack">
+              <div class="score-row">
+                <span>Business activity</span>
+                <strong>Clear</strong>
+              </div>
+              <div class="score-row">
+                <span>Debt ratio</span>
+                <strong>28%</strong>
+              </div>
+              <div class="score-row">
+                <span>Interest income</span>
+                <strong>Within threshold</strong>
+              </div>
+            </article>
+            <article class="list-card">
+              <div class="list-card-head">
+                <strong>Suggested next step</strong>
+                <span>Purification note</span>
+              </div>
+              <p class="body-copy compact">
+                Review the income purification estimate before adding this
+                stock to your halal watchlist.
+              </p>
+            </article>
+          </div>
+          <nav class="tab-bar">
+            <span>Home</span>
+            <span>Budget</span>
+            <span class="active">Invest</span>
+            <span>Goals</span>
+            <span>Profile</span>
+          </nav>
+        </section>
+
+        <section class="phone" data-screen="goals">
+          <div class="status-bar">
+            <span>9:41</span>
+            <span>5G</span>
+          </div>
+          <div class="app-header">
+            <div>
+              <p class="card-label">Savings goals</p>
+              <h2>Build with intention</h2>
+            </div>
+            <button class="ghost-chip">Add goal</button>
+          </div>
+          <div class="screen-body tight">
+            <article class="goal-card">
+              <div class="goal-head">
+                <div>
+                  <strong>Emergency fund</strong>
+                  <span>4 months target</span>
+                </div>
+                <span class="goal-pill">82%</span>
+              </div>
+              <div class="line-progress"><span style="width: 82%"></span></div>
+              <p class="card-label">$8,200 saved of $10,000</p>
+            </article>
+            <article class="goal-card alt">
+              <div class="goal-head">
+                <div>
+                  <strong>Umrah 2027</strong>
+                  <span>Family travel fund</span>
+                </div>
+                <span class="goal-pill">46%</span>
+              </div>
+              <div class="line-progress warm"><span style="width: 46%"></span></div>
+              <p class="card-label">$3,680 saved of $8,000</p>
+            </article>
+            <article class="list-card">
+              <div class="list-card-head">
+                <strong>Smart suggestion</strong>
+                <span>Projected ahead</span>
+              </div>
+              <p class="body-copy compact">
+                Move $120 from dining to Umrah this month and you’ll finish 3
+                weeks earlier.
+              </p>
+            </article>
+          </div>
+          <nav class="tab-bar">
+            <span>Home</span>
+            <span>Budget</span>
+            <span>Invest</span>
+            <span class="active">Goals</span>
+            <span>Profile</span>
+          </nav>
+        </section>
+
+        <section class="phone" data-screen="insights">
+          <div class="status-bar">
+            <span>9:41</span>
+            <span>5G</span>
+          </div>
+          <div class="app-header">
+            <div>
+              <p class="card-label">Insights</p>
+              <h2>Your weekly review</h2>
+            </div>
+            <div class="spark-chip">+12%</div>
+          </div>
+          <div class="screen-body tight">
+            <article class="insight-panel">
+              <p class="card-label">Financial insight</p>
+              <strong>You’re spending less impulsively after Jumu'ah.</strong>
+              <p class="body-copy compact">
+                Friday spending dropped 19% after setting a mindful spending
+                reminder.
+              </p>
+            </article>
+            <div class="insight-stat-row">
+              <article class="small-card">
+                <p class="card-label">Needs review</p>
+                <strong>2</strong>
+                <span>Transactions flagged</span>
+              </article>
+              <article class="small-card">
+                <p class="card-label">Investment watchlist</p>
+                <strong>7</strong>
+                <span>Halal candidates</span>
+              </article>
+            </div>
+            <article class="list-card">
+              <div class="list-card-head">
+                <strong>Zakat note</strong>
+                <span>March 13</span>
+              </div>
+              <p class="body-copy compact">
+                Cash holdings crossed your nisab alert. Review the built-in
+                zakat calculator this weekend.
+              </p>
+            </article>
+          </div>
+          <nav class="tab-bar">
+            <span>Home</span>
+            <span>Budget</span>
+            <span class="active">Invest</span>
+            <span>Goals</span>
+            <span>Profile</span>
+          </nav>
+        </section>
+
+        <section class="phone" data-screen="profile">
+          <div class="status-bar">
+            <span>9:41</span>
+            <span>5G</span>
+          </div>
+          <div class="app-header">
+            <div>
+              <p class="card-label">Profile & settings</p>
+              <h2>Preferences</h2>
+            </div>
+            <div class="avatar-chip">IM</div>
+          </div>
+          <div class="screen-body tight">
+            <div class="profile-card">
+              <div class="profile-avatar">IM</div>
+              <div>
+                <strong>Imaan Ahmed</strong>
+                <p class="card-label">Chicago, IL</p>
+              </div>
+            </div>
+            <article class="settings-list">
+              <div class="settings-row">
+                <span>Halal compliance method</span>
+                <strong>AAOIFI</strong>
+              </div>
+              <div class="settings-row">
+                <span>Zakat reminders</span>
+                <strong>Enabled</strong>
+              </div>
+              <div class="settings-row">
+                <span>Linked accounts</span>
+                <strong>3</strong>
+              </div>
+              <div class="settings-row">
+                <span>Biometric login</span>
+                <strong>On</strong>
+              </div>
+            </article>
+            <article class="list-card">
+              <div class="list-card-head">
+                <strong>Support</strong>
+                <span>Contact</span>
+              </div>
+              <p class="body-copy compact">
+                Ask an advisor, update your profile, or export a clean monthly
+                summary.
+              </p>
+            </article>
+          </div>
+          <nav class="tab-bar">
+            <span>Home</span>
+            <span>Budget</span>
+            <span>Invest</span>
+            <span>Goals</span>
+            <span class="active">Profile</span>
+          </nav>
+        </section>
+      </main>
+    </div>
+    <script>
+      (() => {
+        const installFetchProbe = () => {
+          if (window.__halalFinanceFetchProbeInstalled) {
+            return;
+          }
+
+          const originalFetch = window.fetch.bind(window);
+          window.__halalFinanceFetchProbeInstalled = true;
+
+          window.fetch = async (...args) => {
+            const request = args[0];
+            const url =
+              typeof request === "string"
+                ? request
+                : request && typeof request.url === "string"
+                  ? request.url
+                  : "";
+
+            if (url.includes("mcp.figma.com/mcp/capture/")) {
+              document.documentElement.dataset.captureRequest = url;
+            }
+
+            try {
+              const response = await originalFetch(...args);
+
+              if (url.includes("mcp.figma.com/mcp/capture/")) {
+                document.documentElement.dataset.captureHttpStatus = String(
+                  response.status
+                );
+
+                try {
+                  const clone = response.clone();
+                  const payload = await clone.text();
+                  document.documentElement.dataset.captureResponse = payload.slice(
+                    0,
+                    500
+                  );
+                } catch (error) {
+                  document.documentElement.dataset.captureResponseError =
+                    error instanceof Error ? error.message : String(error);
+                }
+              }
+
+              return response;
+            } catch (error) {
+              if (url.includes("mcp.figma.com/mcp/capture/")) {
+                document.documentElement.dataset.captureFetchError =
+                  error instanceof Error ? error.message : String(error);
+              }
+
+              throw error;
+            }
+          };
+        };
+
+        const getCaptureConfig = () => {
+          const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ""));
+          const queryParams = new URLSearchParams(window.location.search);
+          const captureId =
+            hashParams.get("figmacapture") || queryParams.get("captureId");
+          const endpoint =
+            hashParams.get("figmaendpoint") || queryParams.get("endpoint");
+
+          if (!captureId || !endpoint) {
+            return null;
+          }
+
+          return {
+            captureId,
+            endpoint,
+            selector:
+              hashParams.get("figmaselector") ||
+              queryParams.get("selector") ||
+              "body",
+            delayMs: Number(
+              hashParams.get("figmadelay") ||
+                queryParams.get("delayMs") ||
+                1000
+            ),
+          };
+        };
+
+        const startCapture = async () => {
+          const config = getCaptureConfig();
+
+          if (!config || window.__halalFinanceCaptureStarted) {
+            return;
+          }
+
+          const captureFn = window.figma && window.figma.captureForDesign;
+          if (typeof captureFn !== "function") {
+            window.setTimeout(startCapture, 250);
+            return;
+          }
+
+          window.__halalFinanceCaptureStarted = true;
+          installFetchProbe();
+          document.documentElement.dataset.captureStatus = "started";
+          try {
+            await captureFn({ ...config, verbose: true });
+            document.documentElement.dataset.captureStatus = "success";
+          } catch (error) {
+            console.error("Figma capture bootstrap failed", error);
+            window.__halalFinanceCaptureStarted = false;
+            document.documentElement.dataset.captureStatus = "error";
+            document.documentElement.dataset.captureError =
+              error instanceof Error ? error.message : String(error);
+          }
+        };
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", startCapture, {
+            once: true,
+          });
+        } else {
+          startCapture();
+        }
+      })();
+    </script>
+  </body>
+</html>
